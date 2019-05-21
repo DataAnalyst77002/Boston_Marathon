@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <div class="page-header" style="background-color: darkblue;padding:0px; margin: 0px 0 0px; border-top:1px solid;">
+      <h1 style="color:white;">Marathon Splits Project with Machine Learning</h1>
+    </div>
+
+    <!-- javaScript links to enable dropdown functionality -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body> 
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" style="background-color: lightgray;" href="/">Home</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="{{ url_for('machine') }}">Machine Learning Model</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-5">
+            <a href="#" class="thumbnail">
+                <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/bostonmarathon-finish.jpg?raw=true">
+            </a>
+        </div>
+        <div class="col-md-5 col-md-5">
+            <h3>The Boston Marathon</h3>
+            <h2></h2>
+            <h5>The legendary Boston Marathon course follows a point-to-point route from rural Hopkinton to Boston and is certified per the guidelines set forth by the IAAF and USA Track and Field.</h5>
+            <h2></h2>
+            <h5>If run wisely and with patience, the course can be very fast. However, many runners who are aggressive in the early downhill miles may struggle once they reach the Newton Hills and/or the downhill/flat last 10K.</h5>
+            <h2></h2>
+            <h5>Planning pace of splits directly impacts an individual's finish time.</h5>
+            <h2></h2>
+            <h5>Let us plan your splits! Input age, gender, bib number, anticipated race day temperature, and ideal finish time goal. We will provide anticipated split times to meet that goal.</h5>
+            <h2></h2>
+            <h5>Our machine learning model has been trained using Boston Marathon race results and split times from 2015, 2016, 2017.</h5>
+        </div>        
+    </div>
+  </div>        
+
+  <div class="container">
+    <div class="row">  
+      <div class="col-md-5 col-md-5">
+        <h3 class="text-center">Inputs</h3>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Input Details</h3>
+          </div>
+          <div class="panel-body">
+            <form method="POST" action="/send" id="form">
+            
+              <div class="form-group">
+
+                <label for="inputBib">Bib</label>
+                <input type="text" class="form-control" id="inputBib" name="inputBib">
+                <h5></h5>
+
+                <label for="inputAge">Age</label>
+                <input type="text" class="form-control" id="inputAge" name="inputAge">
+                <h5></h5>
+
+                <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <select class="form-control" id="inputGroupSelect01" name="inputGroupSelect01">
+                    <option select>Choose...</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+                <h5></h5>
+
+                <label for="inputTemp">Race Day Temperature</label>
+                <input type="text" class="form-control" id="inputTemp" placeholder="In Fahrenheit..." name="inputTemp">
+                <h5></h5>
+
+                <label for="inputTime">Ideal Finish Time</label>
+                <input type="text" class="form-control" id="inputHours" placeholder="Hours..." name="inputHours">
+                <input type="text" class="form-control" id="inputMinutes" placeholder="Minutes..." name="inputMinutes">               
+                <h2></h2>
+
+                <input class="btn btn-primary" type="submit" value="Submit">
+              </div>
+            </form>
+            <!-- <button type="submit" form="form" value="Submit">Submit</button> -->
+          </div>
+        </div>  
+      </div>
+      <div class="col-md-5 col-md-5">
+          <h3 class="text-center">Results</h3>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Split Results</h3>
+            </div>
+            <div class="panel-body">
+              <form method="GET" action="/send">
+                <div class="form-group">
+                    <ul class="list-group">
+                      <li class="list-group-item">5K Split: <var>{{data5K}}</var></li>
+                      <li class="list-group-item">10K Split: <var>{{data10K}}</var></li>
+                      <li class="list-group-item">15K Split: <var>{{data15K}}</var></li>
+                      <li class="list-group-item">20K Split: <var>{{data20K}}</var></li>
+                      <li class="list-group-item">Half Split: <var>{{dataHalf}}</var></li>
+                      <li class="list-group-item">25K Split: <var>{{data25K}}</var></li>
+                      <li class="list-group-item">30K Split: <var>{{data30K}}</var></li>
+                      <li class="list-group-item">35K Split: <var>{{data35K}}</var></li>
+                      <li class="list-group-item">40K Split: <var>{{data40K}}</var></li>
+                      <li class="list-group-item">Finish Time: <var>{{dataFinal}}</var></li>
+                    </ul>
+                </div>
+              </form>
+            </div>
+          </div>  
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-11">
+          <a href="#" class="thumbnail">
+              <img src="https://github.com/amcm29/MachineLearning_Marathon/blob/master/Flask_App/static/images/MarathonMap2.PNG?raw=true">
+          </a>
+        </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
