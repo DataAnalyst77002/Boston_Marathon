@@ -1,8 +1,32 @@
 # Boston_Marathon
 
+The software that we used during this project included:
+
+- Visual Basics for Applications (VBA)
+- Python
+- Jupyter Notebook
+- Visual Studio Code
+- HTML
+- Pickle from sklearn
+- Pandas
+- Numpy
+- Joblib
+
+The machine learning ("ML") models we tested before settling on linear regression included:
+
+- Lasso
+- Ridge
+- ElasticNet
+
 ![Boston_Marathon](slides/Slide1.png)
 
-In this Machine Learning Group Project the team and I created models to calculate the splits of a Boston Marathon runner based on Bib Number, Gender, Weather, and Projected Time.
+In this Machine Learning Group Project the team and I created models to calculate the splits of a Boston Marathon runner based on:
+
+- Age
+- Bib Number
+- Gender
+- Weather
+- Projected Time
 
 # Process
 
