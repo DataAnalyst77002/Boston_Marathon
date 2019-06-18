@@ -41,7 +41,7 @@ The next step was to determine what attibutes would be used to train our models.
 # Residual Plots Comparing the Model with Bibs and Without.
 
 ![Boston_Marathon](slides/Slide3.png)
-After testing the model, we reviewed the residual plots to determine model accuracy. The residual is the difference between the actual value and the predicted value for each point of test data.
+After testing the model, we reviewed the residual plots to determine model accuracy. The residual is the difference between the point of test or train data and the regression line.
 
 We tested to see if the bib number impacted the accuracy of the model predictions. The plots above show residuals with and without bib number. Since the R2 is better in the model on the left, bib number does impact the accuracy of the model.
 
