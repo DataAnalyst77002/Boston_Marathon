@@ -43,7 +43,7 @@ The next step was to determine what attibutes would be used to train our models.
 ![Boston_Marathon](slides/Slide3.png)
 After testing the model, we reviewed the residual plots to determine model accuracy. The residual is the difference between the actual value and the predicted value for each point of test data.
 
-We tested to see if the bib number impacted the accuracy of the model predictions. The plots below show residuals with and without bib number. Since the R2 is better in the model on the left, bib number does impact the accuracy of the model.
+We tested to see if the bib number impacted the accuracy of the model predictions. The plots above show residuals with and without bib number. Since the R2 is better in the model on the left, bib number does impact the accuracy of the model.
 
 ![Boston_Marathon](slides/Slide5.png)
 We ran the model for each 5K split as well as the half and final time. The plots below show the R2 and mean squared error ("MSE") for each model. Since each consecutive model uses the 5K split times of the prior, the R2 improves considerably after the first 5K prediction. 
