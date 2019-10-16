@@ -1,3 +1,6 @@
+Follow this link to the website https://dataanalyst77002.github.io/Boston_Marathon/templates/index.html
+
+
 # Boston_Marathon
 
 The software that we used during this project included:
